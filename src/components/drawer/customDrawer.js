@@ -15,7 +15,6 @@ import MyTickets from './myTickets';
 import FAQs from './faqs';
 import Notifications from './notifications';
 import UserInfo from './userInfo';
-import {DrawerContentScrollView} from '@react-navigation/drawer';
 
 const drawerScreensArray = [
   {name: 'subscriptions', route: 'Subscriptions', component: Subscriptions},
