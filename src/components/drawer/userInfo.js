@@ -10,28 +10,31 @@ export default function UserInfo() {
   if (!ready) return null;
 
   return (
-    <SafeAreaView
-      style={{
-        padding: 10,
-        backgroundColor: theme.primary,
-        borderBottomColor: theme.contrastTextColor,
-        borderRadius: 8,
-      }}>
-      <Text
+    <SafeAreaView edges={['top']}>
+      <View
         style={{
-          color: theme.contrastTextColor,
-          fontSize: 18,
-          fontWeight: 'bold',
-          fontFamily: 'nunito-sans',
+          padding: 10,
+          backgroundColor: theme.primary,
+          borderBottomColor: theme.contrastTextColor,
+          borderBottomLeftRadius: 8,
+          borderBottomRightRadius: 8,
         }}>
-        Pavamana
-      </Text>
-      <Text style={{color: theme.contrastTextColor, fontSize: 15}}>
-        9787300135
-      </Text>
-      <Text style={{color: theme.contrastTextColor, fontSize: 15}}>
-        pavamana@gmail.com
-      </Text>
+        <Text
+          style={{
+            color: theme.contrastTextColor,
+            fontSize: 18,
+            fontWeight: 'bold',
+            fontFamily: 'nunito-sans',
+          }}>
+          Pavamana
+        </Text>
+        <Text style={{color: theme.contrastTextColor, fontSize: 15}}>
+          9787300135
+        </Text>
+        <Text style={{color: theme.contrastTextColor, fontSize: 15}}>
+          pavamana@gmail.com
+        </Text>
+      </View>
     </SafeAreaView>
   );
 }

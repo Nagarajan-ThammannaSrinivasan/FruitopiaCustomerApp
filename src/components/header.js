@@ -9,6 +9,7 @@ import {constant} from '../constants';
 
 export default function Header() {
   const {height, width} = useWindowDimensions();
+  const isLandscape = width > height;
   const navigation = useNavigation();
   const drawerNavigation = navigation.getParent();
   const dispatch = useDispatch();
@@ -18,11 +19,11 @@ export default function Header() {
   if (!ready) return null;
 
   return (
-    <SafeAreaView>
+    <SafeAreaView edges={['top']}>
       <View
         style={{
           flexDirection: 'row',
-          height: constant.headerHeight * height,
+          height: 50,
           justifyContent: 'center',
           alignItems: 'center',
           backgroundColor: theme.headerBackgroundColor,

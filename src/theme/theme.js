@@ -1,28 +1,34 @@
 export const lightTheme = {
   primary: '#F97316',
-  primaryTextColor: '#000000', // Ensure text is readable on dark backgrounds
+  primaryTextColor: '#121212', // Ensure text is readable on dark backgrounds
   contrastTextColor: '#FFFFFF', // Text color that contrasts well with primary
-  backgroundColor: '#FFFFFF',
-  textColor: '#000000',
+  backgroundColor: '#F4F4F2',
+  textColor: '#121212',
   buttonBackgroundColor: '#EA580C',
   buttonTextColor: '#FFFFFF',
-  drawerBackgroundColor: '#FFFFFF',
+  drawerBackgroundColor: '#F4F4F2',
   bottomTabBackgroundColor: '#FFFFFF',
   bottomTabIconColor: '#F97316',
-  bottomTabLabelColor: '#000000',
+  bottomTabLabelColor: '#121212',
   bottomTabActiveLabelColor: '#F97316',
   headerBackgroundColor: '#F97316',
-  headerTextColor: '#000000',
+  headerTextColor: '#121212',
+  drawerSectionDividerColor: '#444',
+  cardContainerBackgroundColor: '#FFF8F0',
+  cardPaginationDotColor: '#F97316',
+  activeDotColor: '#121212',
+  showdowColor: '#121212',
+  sectionHeaderColor: '#121212',
 };
 
 export const darkTheme = {
   primary: '#F97316', // Keep brand orange consistent
-  primaryTextColor: '#FFFFFF', // Ensure text is readable on dark backgrounds
-  contrastTextColor: '#FFFFFF', // Text color that contrasts well with primary
-  backgroundColor: '#000000', // True dark gray (not harsh black)
-  textColor: '#FFFFFF', // High contrast text
+  primaryTextColor: '#F4F4F2', // Ensure text is readable on dark backgrounds
+  contrastTextColor: '#F4F4F2', // Text color that contrasts well with primary
+  backgroundColor: '#121212', // True dark gray (not harsh black)
+  textColor: '#F4F4F2', // High contrast text
   buttonBackgroundColor: '#F97316',
-  drawerBackgroundColor: '#000000', // Bright orange stands out on dark
+  drawerBackgroundColor: '#121212', // Bright orange stands out on dark
   buttonTextColor: '#000000', // Black text for strong readability on orange
   bottomTabBackgroundColor: '#1E1E1E', // Slightly lighter dark surface
   bottomTabIconColor: '#F97316', // Accent orange for active icons
@@ -30,4 +36,10 @@ export const darkTheme = {
   bottomTabActiveLabelColor: '#F97316', // Matches active icon color
   headerBackgroundColor: '#F97316',
   headerTextColor: '#FFFFFF',
+  drawerSectionDividerColor: '#F4F4F2',
+  cardContainerBackgroundColor: '#4F4F4F',
+  cardPaginationDotColor: '#F97316',
+  activeDotColor: '#F4F4F2',
+  shadowColor: '#AAAAAA',
+  sectionHeaderColor: '#F4F4F2',
 };

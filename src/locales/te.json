@@ -1,11 +1,25 @@
 {
   "changeTheme": "థీమ్ మార్చండి",
   "changeLanguage": "భాష మార్చండి",
+  "welcome": "ఫ్రూటోపియాకు స్వాగతం",
   "hello": "హలో",
   "home": "హోమ్",
   "products": "ఉత్పత్తులు",
   "offers": "ఆఫర్లు",
-  "referrals": "రెఫerrals",
+  "calendar": "క్యాలెండర్",
   "cart": "కార్ట్",
-  "welcome": "ఫ్రూటోపియా లో మీకు స్వాగతం"
+  "subscriptions": "సబ్‌స్క్రిప్షన్లు",
+  "orderHistory": "ఆర్డర్ చరిత్ర",
+  "tipDeliveryBoy": "డెలివరీ బాయ్‌కి టిప్ ఇవ్వండి",
+  "manageAddresses": "చిరునామాలను నిర్వహించండి",
+  "deliveryInstructions": "డెలివరీ సూచనలు",
+  "wallet": "వాలెట్",
+  "referrals": "రిఫరల్స్",
+  "myTickets": "నా టికెట్లు",
+  "faqs": "తరచుగా అడిగే ప్రశ్నలు",
+  "notifications": "నోటిఫికేషన్లు",
+  "aboutUs": "మా గురించి",
+  "contactUs": "మమ్మల్ని సంప్రదించండి",
+  "termsNPrivacy": "నిబంధనలు & గోప్యత",
+  "logout": "లాగ్ అవుట్"
 }

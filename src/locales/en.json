@@ -20,6 +20,8 @@
   "notifications": "Notifications",
   "aboutUs": "About Us",
   "contactUs": "Contact Us",
-  "terms&Privacy": "Terms & Privacy",
-  "logout": "Logout"
+  "termsNPrivacy": "Terms & Privacy",
+  "logout": "Logout",
+  "testimonials.sectionTitle": "Don't just take our word for it..",
+  "successStories": "Fruitopia Stories"
 }
