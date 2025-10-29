@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 
-export default function Calendar() {
+export default function CartScreen() {
   const {themeMode, theme} = useSelector(state => state.theme);
   const {t, i18n, ready} = useTranslation();
   if (!ready) return null;
@@ -11,7 +11,7 @@ export default function Calendar() {
   return (
     <View style={[styles.container, {backgroundColor: theme.backgroundColor}]}>
       <Text style={[styles.text, {color: theme.primaryTextColor}]}>
-        {t('calendar')}
+        {t('cart')}
       </Text>
     </View>
   );

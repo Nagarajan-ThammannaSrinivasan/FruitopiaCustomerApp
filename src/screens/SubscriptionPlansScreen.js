@@ -14,7 +14,7 @@ import {useWindowDimensions} from 'react-native';
 import testSubscriptionPlansInfo from '../data/testSubscriptionPlans';
 import {useTranslation} from 'react-i18next';
 
-export default function SubscriptionPlans({route}) {
+export default function SubscriptionPlansScreen({route}) {
   const {
     subscriptionId,
     subscriptionName,

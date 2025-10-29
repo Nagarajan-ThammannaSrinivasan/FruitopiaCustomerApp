@@ -1,14 +1,15 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Home from './home';
-import Products from './products';
-import Offers from './offers';
-import Referrals from './referrals';
-import Calendar from './calendar';
-import Cart from './cart';
-import Header from './header';
 import {MaterialIcons} from '@react-native-vector-icons/material-icons';
 import {useSelector, useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
+
+import Header from './Header';
+import HomeScreen from '../screens/HomeScreen';
+import ProductsScreen from '../screens/ProductsScreen';
+import OffersScreen from '../screens/OffersScreen';
+import ReferralsScreen from '../screens/ReferralsScreen';
+import CalendarScreen from '../screens/CalendarScreen';
+import CartScreen from '../screens/CartScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -47,23 +48,31 @@ export default function BottomTabsNavigator() {
           fontFamily: 'nunito-sans',
         },
       })}>
-      <Tab.Screen name="Home" component={Home} options={{title: t('home')}} />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{title: t('home')}}
+      />
       <Tab.Screen
         name="Products"
-        component={Products}
+        component={ProductsScreen}
         options={{title: t('products')}}
       />
       <Tab.Screen
         name="Offers"
-        component={Offers}
+        component={OffersScreen}
         options={{title: t('offers')}}
       />
       <Tab.Screen
         name="Calendar"
-        component={Calendar}
+        component={CalendarScreen}
         options={{title: t('calendar')}}
       />
-      <Tab.Screen name="Cart" component={Cart} options={{title: t('cart')}} />
+      <Tab.Screen
+        name="Cart"
+        component={CartScreen}
+        options={{title: t('cart')}}
+      />
     </Tab.Navigator>
   );
 }

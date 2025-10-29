@@ -2,12 +2,12 @@ import {View, StyleSheet, ScrollView} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {useTranslation} from 'react-i18next';
-import Testimonials from './testimonials';
-import BannerCarousal from './bannerCarousal';
-import SubscriptionsSlider from './subscriptionsSlider';
-import SuccessStories from './successStories';
+import Testimonials from '../components/Testimonials';
+import BannerCarousal from '../components/BannerCarousal';
+import SubscriptionsSlider from '../components/SubscriptionsSlider';
+import SuccessStories from '../components/SuccessStories';
 
-export default function Home() {
+export default function HomeScreen() {
   const count = useSelector(state => state.counter.value);
   const {themeMode, theme} = useSelector(state => state.theme);
   const dispatch = useDispatch();

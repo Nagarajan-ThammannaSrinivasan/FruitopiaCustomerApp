@@ -45,7 +45,7 @@ export default function SubscriptionsSliderCard({subscription}) {
     <View style={styles.container}>
       <Pressable
         onPress={() =>
-          navigation.navigate('SubscriptionPlans', {
+          navigation.navigate('SubscriptionPlansScreen', {
             item: subscription,
           })
         }>

@@ -3,7 +3,7 @@ import {View, Text, FlatList, StyleSheet, ScrollView} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import testSuccessStories from '../data/testSuccessStories';
-import SuccessStoryCard from './successStoryCard';
+import SuccessStoryCard from './SuccessStoryCard';
 
 export default function SuccessStories() {
   const {themeMode, theme} = useSelector(state => state.theme);

@@ -10,7 +10,7 @@ import {
 import {useSelector, useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import testSubscriptions from '../data/testSubscriptions';
-import SubscriptionsSliderCard from './subscriptionsSliderCard';
+import SubscriptionsSliderCard from './SubscriptionsSliderCard';
 
 export default function SubscriptionsSlider() {
   const {themeMode, theme} = useSelector(state => state.theme);

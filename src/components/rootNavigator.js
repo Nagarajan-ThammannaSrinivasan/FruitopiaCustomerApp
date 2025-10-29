@@ -4,9 +4,9 @@ import {
   DarkTheme,
   DefaultTheme,
 } from '@react-navigation/native';
-import ThemeInitializer from './themeInitializer';
+import ThemeInitializer from './ThemeInitializer';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import AppStatusBar from './appStatusBar';
+import AppStatusBar from './AppStatusBar';
 import {useSelector} from 'react-redux';
 
 export default function RootNavigator() {

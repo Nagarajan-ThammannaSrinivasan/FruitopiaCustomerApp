@@ -1,56 +1,78 @@
 import React from 'react';
 import {FlatList, Text, View, Pressable} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import Referrals from '../referrals';
 import {useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
-import Subscriptions from './subscriptions';
 import {useTranslation} from 'react-i18next';
-import OrderHistory from './orderHistory';
-import TipDeliveryBoy from './tipDeliveryBoy';
-import ManageAddresses from './manageAddresses';
-import DeliveryInstructions from './deliveryInstructions';
-import Wallet from './wallet';
-import MyTickets from './myTickets';
-import FAQs from './faqs';
-import Notifications from './notifications';
-import UserInfo from './userInfo';
-import AboutUs from './aboutUs';
-import ContactUs from './contactUs';
-import TermsNPrivacy from './termsNPrivacy';
-import Logout from './logout';
-import Divider from '../divider';
+import UserInfo from './UserInfo';
+import Divider from './Divider';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 
+//Screens
+import AboutUsScreen from '../screens/drawerScreens/AboutUsScreen';
+import ContactUsScreen from '../screens/drawerScreens/ContactUsScreen';
+import TermsNPrivacyScreen from '../screens/drawerScreens/TermsNPrivacyScreen';
+import LogoutScreen from '../screens/drawerScreens/LogoutScreen';
+import OrderHistoryScreen from '../screens/drawerScreens/OrderHistoryScreen';
+import TipDeliveryBoyScreen from '../screens/drawerScreens/TipDeliveryBoyScreen';
+import ManageAddressesScreen from '../screens/drawerScreens/ManageAddressesScreen';
+import DeliveryInstructionsScreen from '../screens/drawerScreens/DeliveryInstructionsScreen';
+import WalletScreen from '../screens/drawerScreens/WalletScreen';
+import MyTicketsScreen from '../screens/drawerScreens/MyTicketsScreen';
+import FAQsScreen from '../screens/drawerScreens/FAQsScreen';
+import NotificationsScreen from '../screens/drawerScreens/NotificationsScreen';
+import SubscriptionsScreen from '../screens/drawerScreens/SubscriptionsScreen';
+import ReferralsScreen from '../screens/ReferralsScreen';
+
 const drawerScreensArray = [
-  {name: 'subscriptions', route: 'Subscriptions', component: Subscriptions},
-  {name: 'orderHistory', route: 'OrderHistory', component: OrderHistory},
-  {name: 'tipDeliveryBoy', route: 'TipDeliveryBoy', component: TipDeliveryBoy},
+  {
+    name: 'subscriptions',
+    route: 'SubscriptionsScreen',
+    component: SubscriptionsScreen,
+  },
+  {
+    name: 'orderHistory',
+    route: 'OrderHistoryScreen',
+    component: OrderHistoryScreen,
+  },
+  {
+    name: 'tipDeliveryBoy',
+    route: 'TipDeliveryBoyScreen',
+    component: TipDeliveryBoyScreen,
+  },
   {
     name: 'manageAddresses',
-    route: 'ManageAddresses',
-    component: ManageAddresses,
+    route: 'ManageAddressesScreen',
+    component: ManageAddressesScreen,
   },
   {
     name: 'deliveryInstructions',
-    route: 'DeliveryInstructions',
-    component: DeliveryInstructions,
+    route: 'DeliveryInstructionsScreen',
+    component: DeliveryInstructionsScreen,
   },
-  {name: 'wallet', route: 'Wallet', component: Wallet},
-  {name: 'referrals', route: 'Referrals', component: Referrals},
-  {name: 'myTickets', route: 'MyTickets', component: MyTickets},
-  {name: 'faqs', route: 'FAQs', component: FAQs},
-  {name: 'notifications', route: 'Notifications', component: Notifications},
+  {name: 'wallet', route: 'WalletScreen', component: WalletScreen},
+  {name: 'referrals', route: 'ReferralsScreen', component: ReferralsScreen},
+  {name: 'myTickets', route: 'MyTicketsScreen', component: MyTicketsScreen},
+  {name: 'faqs', route: 'FAQsScreen', component: FAQsScreen},
+  {
+    name: 'notifications',
+    route: 'NotificationsScreen',
+    component: NotificationsScreen,
+  },
 ];
 
 const drawerAppOfficalScreensArray = [
-  {name: 'aboutUs', route: 'AboutUs', component: AboutUs},
-  {name: 'contactUs', route: 'ContactUs', component: ContactUs},
-  {name: 'termsNPrivacy', route: 'termsNPrivacy', component: TermsNPrivacy},
+  {name: 'aboutUs', route: 'AboutUsScreen', component: AboutUsScreen},
+  {name: 'contactUs', route: 'ContactUsScreen', component: ContactUsScreen},
+  {
+    name: 'termsNPrivacy',
+    route: 'TermsNPrivacyScreen',
+    component: TermsNPrivacyScreen,
+  },
   {
     name: 'logout',
-    route: 'Logout',
-    component: Logout,
+    route: 'LogoutScreen',
+    component: LogoutScreen,
   },
 ];
 

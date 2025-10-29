@@ -1,6 +1,6 @@
 import {useSelector} from 'react-redux';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import CustomDrawer from './drawer/customDrawer';
+import CustomDrawer from './CustomDrawer';
 import {useWindowDimensions} from 'react-native';
 import RootStack from './rootStack';
 import {constant} from '../constants';

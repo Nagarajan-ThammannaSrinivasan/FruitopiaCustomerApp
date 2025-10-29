@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
-import TestimonialCard from './testimonialCard';
+import TestimonialCard from './TestimonialCard';
 import testTestimonials from '../data/testTestimonials';
 
 export default function Testimonials() {
