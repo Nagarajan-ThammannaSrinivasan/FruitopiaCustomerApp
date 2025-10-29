@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, Image, ImageBackground, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
-import StarRating from './StarRating';
+import StarRating from './starRating';
 
 export default function TestimonialCard({
   name,
