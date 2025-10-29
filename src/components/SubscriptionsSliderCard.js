@@ -8,6 +8,7 @@ export default function SubscriptionsSliderCard({subscription}) {
   const {subscriptionName, subscriptionPic} = subscription;
   const {themeMode, theme} = useSelector(state => state.theme);
   const navigation = useNavigation();
+
   const styles = StyleSheet.create({
     container: {
       backgroundColor: theme.cardContainerBackgroundColor,

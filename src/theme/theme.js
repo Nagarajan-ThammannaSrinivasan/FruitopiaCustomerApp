@@ -5,7 +5,6 @@ export const lightTheme = {
   backgroundColor: '#F4F4F2',
   textColor: '#121212',
   buttonBackgroundColor: '#EA580C',
-  buttonTextColor: '#FFFFFF',
   drawerBackgroundColor: '#F4F4F2',
   bottomTabBackgroundColor: '#FFFFFF',
   bottomTabIconColor: '#F97316',
@@ -20,6 +19,7 @@ export const lightTheme = {
   activeDotColor: '#121212',
   showdowColor: '#121212',
   sectionHeaderColor: '#121212',
+  bottomSheetBackgroundColor: '#F4F4F2',
 };
 
 export const darkTheme = {
@@ -30,7 +30,6 @@ export const darkTheme = {
   textColor: '#F4F4F2', // High contrast text
   buttonBackgroundColor: '#F97316',
   drawerBackgroundColor: '#121212', // Bright orange stands out on dark
-  buttonTextColor: '#000000', // Black text for strong readability on orange
   bottomTabBackgroundColor: '#1E1E1E', // Slightly lighter dark surface
   bottomTabIconColor: '#F97316', // Accent orange for active icons
   bottomTabLabelColor: '#FFFFFF', // Subtle gray for inactive labels
@@ -44,4 +43,5 @@ export const darkTheme = {
   activeDotColor: '#F4F4F2',
   shadowColor: '#AAAAAA',
   sectionHeaderColor: '#F4F4F2',
+  bottomSheetBackgroundColor: '#242424',
 };

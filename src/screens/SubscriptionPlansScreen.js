@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useRef, useMemo, useEffect, useState, useCallback} from 'react';
 import {
   Text,
   Image,
@@ -10,9 +10,11 @@ import {
 } from 'react-native';
 import {useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
+import BottomSheet, {BottomSheetView} from '@gorhom/bottom-sheet';
 import {useWindowDimensions} from 'react-native';
 import testSubscriptionPlansInfo from '../data/testSubscriptionPlans';
 import {useTranslation} from 'react-i18next';
+import BottomSheetHandleBar from '../components/BottomSheetHandleBar';
 
 export default function SubscriptionPlansScreen({route}) {
   const {
@@ -24,6 +26,7 @@ export default function SubscriptionPlansScreen({route}) {
     vegatables,
     protein,
   } = route.params.item;
+  const bottomSheetRef = useRef(null);
   const [planSelectedId, setPlanSelectedId] = useState(null);
   const {themeMode, theme} = useSelector(state => state.theme);
   const {height, width} = useWindowDimensions();
@@ -32,6 +35,10 @@ export default function SubscriptionPlansScreen({route}) {
   const [loading, setLoading] = useState(true);
   const {t, i18n, ready} = useTranslation();
   if (!ready) return null;
+
+  const snapPoints = useMemo(() => ['25%', '50%', '75%'], []);
+  const openSheet = () => bottomSheetRef.current?.expand();
+  const closeSheet = () => bottomSheetRef.current?.close();
 
   useEffect(() => {
     let plansInfo = testSubscriptionPlansInfo.find(
@@ -54,19 +61,24 @@ export default function SubscriptionPlansScreen({route}) {
         },
       ]}
       onPress={() => {
-        console.log(item.id);
         setPlanSelectedId(item.id);
-        console.log('Go to Add Ons');
+        openSheet();
+        bottomSheetRef.current?.expand();
       }}>
       <Text style={styles.planName}>{item.planName}</Text>
       <Text style={styles.planName}>₹ {item.price}</Text>
     </Pressable>
   );
 
+  const onBottomSheetClose = () => {
+    closeSheet();
+    setPlanSelectedId(null);
+  };
+
   const styles = StyleSheet.create({
     container: {
+      flex: 1,
       backgroundColor: theme.backgroundColor,
-      borderRadius: 12, // rounded corners
       width: width,
       height: height,
       // Shadow for iOS
@@ -78,6 +90,13 @@ export default function SubscriptionPlansScreen({route}) {
       // Elevation for Android
       elevation: 1,
       overflow: 'visible',
+    },
+    botomSheetContainer: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: theme.cardContainerBackgroundColor,
+      padding: 10,
     },
     textContainer: {
       marginHorizontal: 5,
@@ -104,7 +123,6 @@ export default function SubscriptionPlansScreen({route}) {
     },
     planInfoContainer: {
       backgroundColor: theme.backgroundColor,
-      borderRadius: 12,
       // Shadow for iOS
       shadowColor: theme.shadowColor,
       shadowOffset: {width: 0, height: 2},
@@ -178,17 +196,7 @@ export default function SubscriptionPlansScreen({route}) {
     },
   });
 
-  if (loading)
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <ActivityIndicator color={theme.primary} size="large" />
-      </View>
-    );
+  if (loading) return <ActivityIndicator />;
 
   return (
     <View style={styles.container}>
@@ -215,12 +223,24 @@ export default function SubscriptionPlansScreen({route}) {
           <Text style={styles.subscriptionInfoItemTextValue}>{protein}</Text>
         </View>
       </View>
-
       <FlatList
         style={styles.planInfoContainer}
         data={subscriptionPlansInfo.plans}
         keyExtractor={item => item.id.toString()}
         renderItem={subscriptionPlansRenderItem}></FlatList>
+
+      <BottomSheet
+        ref={bottomSheetRef}
+        handleComponent={() => (
+          <BottomSheetHandleBar onClose={onBottomSheetClose} />
+        )}
+        backgroundStyle={{backgroundColor: theme.bottomSheetBackgroundColor}}
+        index={-1}
+        snapPoints={snapPoints}>
+        <BottomSheetView style={styles.botomSheetContainer}>
+          <Text>Awesome 🎉</Text>
+        </BottomSheetView>
+      </BottomSheet>
     </View>
   );
 }
