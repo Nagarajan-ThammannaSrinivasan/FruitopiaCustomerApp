@@ -1,18 +1,13 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  FlatList,
-  StyleSheet,
-  useWindowDimensions,
-} from 'react-native';
+import {View, Text, Image, StyleSheet, Pressable} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
+import {useNavigation} from '@react-navigation/native';
 
-export default function SubscriptionsSliderCard({planName, planPic}) {
-  const {height, width} = useWindowDimensions();
+export default function SubscriptionsSliderCard({subscription}) {
+  const {subscriptionName, subscriptionPic} = subscription;
   const {themeMode, theme} = useSelector(state => state.theme);
+  const navigation = useNavigation();
   const styles = StyleSheet.create({
     container: {
       backgroundColor: theme.cardContainerBackgroundColor,
@@ -45,20 +40,28 @@ export default function SubscriptionsSliderCard({planName, planPic}) {
       paddingTop: 5,
     },
   });
+
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <Image source={planPic} style={styles.image}></Image>
-        <Text style={styles.nameText} ellipsisMode="tail" numberOfLines={1}>
-          {planName}
-        </Text>
-      </View>
+      <Pressable
+        onPress={() =>
+          navigation.navigate('SubscriptionPlans', {
+            item: subscription,
+          })
+        }>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Image source={subscriptionPic} style={styles.image}></Image>
+          <Text style={styles.nameText} ellipsisMode="tail" numberOfLines={1}>
+            {subscriptionName}
+          </Text>
+        </View>
+      </Pressable>
     </View>
   );
 }

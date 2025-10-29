@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  ImageBackground,
-  StyleSheet,
-  useWindowDimensions,
-} from 'react-native';
+import {View, Text, Image, ImageBackground, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
 import StarRating from './starRating';
 
@@ -16,7 +9,6 @@ export default function TestimonialCard({
   rating,
   testimonial,
 }) {
-  const {height, width} = useWindowDimensions();
   const {themeMode, theme} = useSelector(state => state.theme);
   const styles = StyleSheet.create({
     container: {

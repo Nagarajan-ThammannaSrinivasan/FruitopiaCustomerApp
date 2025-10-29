@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  StyleSheet,
-  useWindowDimensions,
-} from 'react-native';
+import {View, Text, FlatList, StyleSheet} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import TestimonialCard from './testimonialCard';
@@ -13,7 +7,6 @@ import testTestimonials from '../data/testTestimonials';
 
 export default function Testimonials() {
   const {themeMode, theme} = useSelector(state => state.theme);
-  const {height, width} = useWindowDimensions();
   const dispatch = useDispatch();
   const {t, i18n, ready} = useTranslation();
   if (!ready) return null;

@@ -20,16 +20,14 @@ export default function SubscriptionsSlider() {
   if (!ready) return null;
 
   const subscriptionsRenderItem = ({item}) => (
-    <SubscriptionsSliderCard planName={item.planName} planPic={item.planPic} />
+    <SubscriptionsSliderCard subscription={item} />
   );
 
   const styles = StyleSheet.create({
     container: {
-      height: 150,
       marginTop: 30,
       marginHorizontal: 5,
       padding: 5,
-      // backgroundColor: 'red',
     },
     sectionTitle: {
       fontSize: 16,

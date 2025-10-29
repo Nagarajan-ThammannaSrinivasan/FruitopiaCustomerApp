@@ -1,16 +1,8 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  ImageBackground,
-  StyleSheet,
-  useWindowDimensions,
-} from 'react-native';
+import {View, Text, Image, ImageBackground, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
 
 export default function BannerCard({img, title, description, price}) {
-  const {height, width} = useWindowDimensions();
   const {themeMode, theme} = useSelector(state => state.theme);
   const styles = StyleSheet.create({
     bannerContainer: {

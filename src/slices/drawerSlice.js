@@ -11,9 +11,7 @@ const drawerSlice = createSlice({
       state.value = false;
     },
     toggleDrawer: state => {
-      console.log('Toggling drawer from', state.value);
       state.value = !state.value;
-      console.log('Toggling drawer from', state.value);
     },
   },
 });

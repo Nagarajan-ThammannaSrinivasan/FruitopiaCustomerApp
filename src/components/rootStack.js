@@ -13,6 +13,7 @@ import Wallet from './drawer/wallet';
 import FAQs from './drawer/faqs';
 import MyTickets from './drawer/myTickets';
 import Notifications from './drawer/notifications';
+import SubscriptionPlans from './subscriptionPlans';
 
 const Stack = createNativeStackNavigator();
 
@@ -48,7 +49,7 @@ export default function RootStack() {
       <Stack.Screen
         name="OrderHistory"
         component={OrderHistory}
-        options={{title: t('orderHistory')}} // default header with back button
+        options={{title: t('orderHistory')}}
       />
       <Stack.Screen
         name="TipDeliveryBoy"
@@ -58,7 +59,7 @@ export default function RootStack() {
       <Stack.Screen
         name="ManageAddresses"
         component={ManageAddresses}
-        options={{title: t('manageAddresses')}} // default header with back button
+        options={{title: t('manageAddresses')}}
       />
       <Stack.Screen
         name="DeliveryInstructions"
@@ -68,25 +69,31 @@ export default function RootStack() {
       <Stack.Screen
         name="Wallet"
         component={Wallet}
-        options={{title: t('wallet')}} // default header with back button
+        options={{title: t('wallet')}}
       />
 
       <Stack.Screen
         name="Referrals"
         component={Referrals}
-        options={{title: t('referrals')}} // default header with back button
+        options={{title: t('referrals')}}
       />
       <Stack.Screen
         name="MyTickets"
         component={MyTickets}
-        options={{title: t('myTickets')}} // default header with back button
+        options={{title: t('myTickets')}}
       />
       <Stack.Screen name="FAQs" component={FAQs} options={{title: t('faqs')}} />
 
       <Stack.Screen
         name="Notifications"
         component={Notifications}
-        options={{title: t('notifications')}} // default header with back button
+        options={{title: t('notifications')}}
+      />
+
+      <Stack.Screen
+        name="SubscriptionPlans"
+        component={SubscriptionPlans}
+        options={{title: t('subscriptionPlans')}}
       />
     </Stack.Navigator>
   );

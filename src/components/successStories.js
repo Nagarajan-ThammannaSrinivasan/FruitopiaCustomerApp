@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  FlatList,
-  StyleSheet,
-  useWindowDimensions,
-  ScrollView,
-} from 'react-native';
+import {View, Text, FlatList, StyleSheet, ScrollView} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import testSuccessStories from '../data/testSuccessStories';
@@ -15,7 +7,6 @@ import SuccessStoryCard from './successStoryCard';
 
 export default function SuccessStories() {
   const {themeMode, theme} = useSelector(state => state.theme);
-  const {height, width} = useWindowDimensions();
   const dispatch = useDispatch();
   const {t, i18n, ready} = useTranslation();
   if (!ready) return null;

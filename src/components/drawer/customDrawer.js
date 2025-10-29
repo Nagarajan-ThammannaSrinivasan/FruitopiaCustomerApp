@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, Text, View, TouchableOpacity} from 'react-native';
+import {FlatList, Text, View, Pressable} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Referrals from '../referrals';
 import {useSelector} from 'react-redux';
@@ -66,7 +66,7 @@ export default function CustomDrawer() {
         data={drawerScreensArray}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item}) => (
-          <TouchableOpacity
+          <Pressable
             style={{
               padding: 5,
               flexDirection: 'row',
@@ -93,7 +93,7 @@ export default function CustomDrawer() {
                 fontStyle: 'bold',
                 paddingRight: 5,
               }}></MaterialIcons>
-          </TouchableOpacity>
+          </Pressable>
         )}></FlatList>
 
       <Divider></Divider>
@@ -101,7 +101,7 @@ export default function CustomDrawer() {
         data={drawerAppOfficalScreensArray}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item}) => (
-          <TouchableOpacity
+          <Pressable
             style={{padding: 5}}
             onPress={() => navigation.navigate(item.route)}>
             <Text
@@ -112,7 +112,7 @@ export default function CustomDrawer() {
               }}>
               {t(item.name)}
             </Text>
-          </TouchableOpacity>
+          </Pressable>
         )}></FlatList>
     </SafeAreaView>
   );

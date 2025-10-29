@@ -22,7 +22,10 @@ export default function BottomTabsNavigator() {
     <Tab.Navigator
       screenOptions={({route}) => ({
         header: () => <Header></Header>,
-        tabBarStyle: {backgroundColor: theme.bottomTabBackgroundColor},
+        tabBarStyle: {
+          backgroundColor: theme.bottomTabBackgroundColor,
+          height: 60,
+        },
         tabBarActiveTintColor: theme.bottomTabActiveLabelColor,
         tabBarInactiveTintColor: theme.bottomTabLabelColor,
         tabBarIcon: ({color, size}) => {

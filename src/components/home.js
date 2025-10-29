@@ -1,12 +1,4 @@
-import {
-  View,
-  Text,
-  Button,
-  TouchableOpacity,
-  StyleSheet,
-  useWindowDimensions,
-  ScrollView,
-} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {useTranslation} from 'react-i18next';
@@ -18,7 +10,6 @@ import SuccessStories from './successStories';
 export default function Home() {
   const count = useSelector(state => state.counter.value);
   const {themeMode, theme} = useSelector(state => state.theme);
-  const {height, width} = useWindowDimensions();
   const dispatch = useDispatch();
   const {t, i18n, ready} = useTranslation();
   if (!ready) return null;

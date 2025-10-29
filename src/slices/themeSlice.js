@@ -13,7 +13,6 @@ const themeSlice = createSlice({
       state.theme = action.payload.themeMode == 'dark' ? darkTheme : lightTheme;
     },
     toggleTheme: state => {
-      console.log('Toggling theme from', state.themeMode);
       if (state.themeMode == 'light') {
         state.themeMode = 'dark';
         state.theme = darkTheme;
