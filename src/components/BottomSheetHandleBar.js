@@ -26,6 +26,7 @@ export default function BottomSheetHandleBar({onClose}) {
       borderTopLeftRadius: 12,
       borderTopRightRadius: 12,
       overflow: 'visible',
+      backgroundColor: theme.primary,
     },
   });
 

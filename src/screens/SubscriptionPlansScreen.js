@@ -31,7 +31,7 @@ export default function SubscriptionPlansScreen({route}) {
   if (!ready) return null;
 
   const snapPoints = useMemo(() => ['10%', '25%', '50%', '75%'], []);
-  const openSheet = () => bottomSheetRef.current?.snapToIndex(3);
+  const openSheet = () => bottomSheetRef.current?.snapToIndex(2);
   const closeSheet = () => bottomSheetRef.current?.close();
 
   useEffect(() => {
@@ -83,13 +83,6 @@ export default function SubscriptionPlansScreen({route}) {
       // Elevation for Android
       elevation: 1,
       overflow: 'visible',
-    },
-    bottomSheetContainer: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: theme.cardContainerBackgroundColor,
-      marginHorizontal: 5,
     },
     textContainer: {
       marginHorizontal: 5,
@@ -230,9 +223,7 @@ export default function SubscriptionPlansScreen({route}) {
         backgroundStyle={{backgroundColor: theme.bottomSheetBackgroundColor}}
         index={-1}
         snapPoints={snapPoints}>
-        <BottomSheetView style={styles.bottomSheetContainer}>
-          <AddOns />
-        </BottomSheetView>
+        <AddOns />
       </BottomSheet>
     </View>
   );

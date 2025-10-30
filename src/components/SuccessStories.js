@@ -26,7 +26,6 @@ export default function SuccessStories() {
       marginHorizontal: 5,
       padding: 5,
       flex: 1,
-      height: 300,
     },
     sectionTitle: {
       fontSize: 16,
@@ -45,8 +44,6 @@ export default function SuccessStories() {
       <Text style={styles.sectionTitle}>{t('successStories')}</Text>
       <FlatList
         style={{flex: 1}}
-        nestedScrollEnabled={true}
-        showsVerticalScrollIndicator={true}
         data={testSuccessStories}
         keyExtractor={item => item.id.toString()}
         renderItem={successStoryCardRenderItem}

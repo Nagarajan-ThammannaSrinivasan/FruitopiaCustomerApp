@@ -13,13 +13,34 @@ export default function AddOnItem({item}) {
   const navigation = useNavigation();
   const [loading, setLoading] = useState(true);
   const {t, i18n, ready} = useTranslation();
+  if (!ready) return null;
+
   const [isChecked, setIsChecked] = useState(false);
+  const [selectedVariant, setSelectedVariant] = useState(null);
+
+  const handleAddonCheck = addon => {
+    setIsChecked(prev => {
+      const latestCheckValue = !prev;
+      if (item.variants.length > 0 && latestCheckValue) {
+        setSelectedVariant(item.variants[0]);
+      } else if (item.variants.length > 0 && !latestCheckValue) {
+        setSelectedVariant(null);
+      }
+      return latestCheckValue;
+    });
+  };
+
+  const handleVariantSelection = variant => {
+    setSelectedVariant(variant);
+    setIsChecked(true);
+  };
 
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
+      marginHorizantal: 10,
+      marginBottom: 10,
       padding: 10,
-      margin: 5,
+      borderBottomWidth: 0.5,
       backgroundColor: theme.cardContainerBackgroundColor,
       borderRadius: 12,
       // Shadow for iOS
@@ -32,42 +53,106 @@ export default function AddOnItem({item}) {
       elevation: 1,
       overflow: 'visible',
     },
+    innerContainer: {
+      flexDirection: 'row',
+      alignItems: 'flex-start', // keep everything top-aligned
+    },
+    nameText: {
+      fontSize: 15,
+      fontWeight: 'normal',
+      color: theme.textColor,
+    },
+
+    descriptionText: {
+      fontSize: 14,
+      fontWeight: 'normal',
+      color: theme.textColor,
+    },
+    variantText: {
+      fontSize: 14,
+      color: theme.textColor,
+      paddingLeft: 10,
+      paddingRight: 5,
+      paddingVertical: 5,
+    },
+    selectedVariant: {
+      borderWidth: 2,
+      borderColor: 'red',
+    },
+    variantNameContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    checkbox: {marginLeft: 10},
+    flex1: {flex: 1},
   });
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-        }}>
-        <View style={{flex: 1, alignItems: 'flex-start'}}>
-          <Text style={{color: theme.textColor}}>{item.name}</Text>
-        </View>
-        <View
-          style={{
-            flex: 2,
-            alignItems: 'flex-end',
-          }}>
-          {item.price !== null ? (
-            <Text style={{color: theme.textColor}}>₹ {item.price}</Text>
+      <View style={styles.innerContainer}>
+        {/* Left Section — Name + Variants */}
+        <View style={styles.flex1}>
+          <Text style={styles.nameText}>{item.name}</Text>
+          {item.quantity != null ? (
+            <Text style={styles.descriptionText}>({item.quantity})</Text>
           ) : (
-            ''
+            <Text>{''}</Text>
           )}
+          {item.variants.length > 0
+            ? item.variants.map((variant, index) => (
+                <Pressable
+                  key={variant.variant_name + index}
+                  onPress={() => handleVariantSelection(variant)}>
+                  <View style={styles.variantNameContainer}>
+                    <Text style={styles.variantText}>
+                      {variant.variant_name} ({variant.variant_provide})
+                    </Text>
+                    {selectedVariant == variant ? (
+                      <MaterialIcons
+                        name="check-circle"
+                        size={20}
+                        color="green"
+                      />
+                    ) : (
+                      <Text>{''}</Text>
+                    )}
+                  </View>
+                </Pressable>
+              ))
+            : null}
         </View>
-        <View
-          style={{
-            flex: 1,
-            alignItems: 'flex-end',
-          }}>
-          <Pressable>
-            <MaterialIcons
-              name={isChecked ? 'check-box' : 'check-box-outline-blank'}
-              size={24}
-              color={isChecked ? theme.primary : theme.inactiveCheckBoxColor}
-              onPress={() => setIsChecked(!isChecked)}
-            />
-          </Pressable>
+
+        {/* Middle Section — Price */}
+        <View>
+          {item.price !== null ? (
+            <Text key="price" style={styles.nameText}>
+              ₹ {item.price}
+            </Text>
+          ) : (
+            <Text key="price_empty">{''} </Text>
+          )}
+
+          {item.variants.length > 0
+            ? [{variant_price: 'parent'}, ...item.variants].map(
+                (variant, index) =>
+                  variant.variant_price !== 'parent' ? (
+                    <Text key={index} style={styles.variantText}>
+                      ₹ {variant.variant_price}
+                    </Text>
+                  ) : (
+                    <Text key={`price_empty2${index}`}>{''} </Text>
+                  ),
+              )
+            : null}
         </View>
+
+        {/* Right Section — Checkbox */}
+        <Pressable style={styles.checkBox} onPress={handleAddonCheck}>
+          <MaterialIcons
+            name={isChecked ? 'check-box' : 'check-box-outline-blank'}
+            size={24}
+            color={isChecked ? theme.primary : theme.inactiveCheckBoxColor}
+          />
+        </Pressable>
       </View>
     </View>
   );

@@ -7,6 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 import testAddOnsInfo from '../data/testAddOns';
 import CustomActivityIndicator from './CustomActivityIndicator';
 import AddOnItem from './AddOnItem';
+import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
 
 export default function AddOns() {
   const {themeMode, theme} = useSelector(state => state.theme);
@@ -31,8 +32,7 @@ export default function AddOns() {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginHorizontal: 5,
-      padding: 5,
+      padding: 10,
       backgroundColor: theme.backgroundColor,
       width: width,
       height: height,
@@ -45,9 +45,6 @@ export default function AddOns() {
       // Elevation for Android
       elevation: 1,
       overflow: 'visible',
-      borderColor: theme.primary,
-      borderLeftWidth: 3,
-      borderRightWidth: 3,
     },
     textContainer: {
       marginHorizontal: 5,
@@ -62,7 +59,12 @@ export default function AddOns() {
 
   return (
     <View style={styles.container}>
-      <FlatList data={addOnsInfo} renderItem={addOnRenderItem}></FlatList>
+      <BottomSheetFlatList
+        style={{flex: 1}}
+        data={addOnsInfo}
+        keyExtractor={(item, index) => index.toString()}
+        showsVerticalScrollIndicator={false}
+        renderItem={addOnRenderItem}></BottomSheetFlatList>
     </View>
   );
 }

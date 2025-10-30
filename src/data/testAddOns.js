@@ -3,7 +3,7 @@ export default [
   {
     name: 'Dry Fruits',
     price: 1899,
-    quantity: '',
+    quantity: null,
     variants: [
       {variant_name: 'Almonds', variant_provide: 4, variant_price: 'parent'},
       {variant_name: 'Walnuts', variant_provide: 2, variant_price: 'parent'},

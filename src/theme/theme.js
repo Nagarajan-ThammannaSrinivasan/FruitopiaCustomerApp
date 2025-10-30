@@ -39,7 +39,7 @@ export const darkTheme = {
   headerTextColor: '#FFFFFF',
   drawerSectionDividerColor: '#F4F4F2',
   cardContainerBackgroundColor: '#4F4F4F',
-  cardPressedBackgroundColor: '#FFD700',
+  cardPressedBackgroundColor: '#F97316',
   cardPaginationDotColor: '#F97316',
   activeDotColor: '#F4F4F2',
   shadowColor: '#AAAAAA',
