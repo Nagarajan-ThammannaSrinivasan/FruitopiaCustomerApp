@@ -18,10 +18,14 @@ export default function BottomSheetHandleBar({onClose}) {
       justifyContent: 'center',
       flex: 1,
       flexDirection: 'row',
-      borderTopColor: theme.primary,
-      borderTopWidth: 2,
+      borderColor: theme.primary,
+      borderBottomWidth: 0,
+      borderLeftWidth: 3,
+      borderRightWidth: 3,
+      borderTopWidth: 3,
       borderTopLeftRadius: 12,
       borderTopRightRadius: 12,
+      overflow: 'visible',
     },
   });
 

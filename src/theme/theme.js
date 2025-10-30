@@ -20,6 +20,7 @@ export const lightTheme = {
   showdowColor: '#121212',
   sectionHeaderColor: '#121212',
   bottomSheetBackgroundColor: '#F4F4F2',
+  inactiveCheckBoxColor: '#777',
 };
 
 export const darkTheme = {
@@ -44,4 +45,5 @@ export const darkTheme = {
   shadowColor: '#AAAAAA',
   sectionHeaderColor: '#F4F4F2',
   bottomSheetBackgroundColor: '#242424',
+  inactiveCheckBoxColor: '#ccc',
 };

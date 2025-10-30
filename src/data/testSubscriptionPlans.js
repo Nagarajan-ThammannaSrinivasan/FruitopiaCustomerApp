@@ -4,18 +4,12 @@ export default [
     plans: [
       {
         id: 1,
-        planName: 'Trial',
-        isApplicable: false,
-        price: 0,
-      },
-      {
-        id: 2,
         planName: 'Standard',
         isApplicable: true,
         price: 1799,
       },
       {
-        id: 3,
+        id: 2,
         planName: 'Corporate',
         isApplicable: true,
         price: 1599,
@@ -27,18 +21,12 @@ export default [
     plans: [
       {
         id: 1,
-        planName: 'Trial',
-        isApplicable: false,
-        price: 0,
-      },
-      {
-        id: 2,
         planName: 'Standard',
         isApplicable: true,
         price: 1799,
       },
       {
-        id: 3,
+        id: 2,
         planName: 'Corporate',
         isApplicable: true,
         price: 1599,

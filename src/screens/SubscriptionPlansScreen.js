@@ -1,13 +1,5 @@
 import React, {useRef, useMemo, useEffect, useState, useCallback} from 'react';
-import {
-  Text,
-  Image,
-  View,
-  StyleSheet,
-  ActivityIndicator,
-  FlatList,
-  Pressable,
-} from 'react-native';
+import {Text, Image, View, StyleSheet, FlatList, Pressable} from 'react-native';
 import {useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import BottomSheet, {BottomSheetView} from '@gorhom/bottom-sheet';
@@ -15,6 +7,8 @@ import {useWindowDimensions} from 'react-native';
 import testSubscriptionPlansInfo from '../data/testSubscriptionPlans';
 import {useTranslation} from 'react-i18next';
 import BottomSheetHandleBar from '../components/BottomSheetHandleBar';
+import AddOns from '../components/AddOns';
+import CustomActivityIndicator from '../components/CustomActivityIndicator';
 
 export default function SubscriptionPlansScreen({route}) {
   const {
@@ -36,8 +30,8 @@ export default function SubscriptionPlansScreen({route}) {
   const {t, i18n, ready} = useTranslation();
   if (!ready) return null;
 
-  const snapPoints = useMemo(() => ['25%', '50%', '75%'], []);
-  const openSheet = () => bottomSheetRef.current?.expand();
+  const snapPoints = useMemo(() => ['10%', '25%', '50%', '75%'], []);
+  const openSheet = () => bottomSheetRef.current?.snapToIndex(3);
   const closeSheet = () => bottomSheetRef.current?.close();
 
   useEffect(() => {
@@ -63,7 +57,6 @@ export default function SubscriptionPlansScreen({route}) {
       onPress={() => {
         setPlanSelectedId(item.id);
         openSheet();
-        bottomSheetRef.current?.expand();
       }}>
       <Text style={styles.planName}>{item.planName}</Text>
       <Text style={styles.planName}>₹ {item.price}</Text>
@@ -91,12 +84,12 @@ export default function SubscriptionPlansScreen({route}) {
       elevation: 1,
       overflow: 'visible',
     },
-    botomSheetContainer: {
+    bottomSheetContainer: {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: theme.cardContainerBackgroundColor,
-      padding: 10,
+      marginHorizontal: 5,
     },
     textContainer: {
       marginHorizontal: 5,
@@ -196,7 +189,7 @@ export default function SubscriptionPlansScreen({route}) {
     },
   });
 
-  if (loading) return <ActivityIndicator />;
+  if (loading) return <CustomActivityIndicator />;
 
   return (
     <View style={styles.container}>
@@ -237,8 +230,8 @@ export default function SubscriptionPlansScreen({route}) {
         backgroundStyle={{backgroundColor: theme.bottomSheetBackgroundColor}}
         index={-1}
         snapPoints={snapPoints}>
-        <BottomSheetView style={styles.botomSheetContainer}>
-          <Text>Awesome 🎉</Text>
+        <BottomSheetView style={styles.bottomSheetContainer}>
+          <AddOns />
         </BottomSheetView>
       </BottomSheet>
     </View>

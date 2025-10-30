@@ -2,7 +2,7 @@ import React from 'react';
 import {View, ActivityIndicator} from 'react-native';
 import {useSelector} from 'react-redux';
 
-export default function ActivityIndicator() {
+export default function CustomActivityIndicator() {
   const {themeMode, theme} = useSelector(state => state.theme);
   return (
     <View
