@@ -9,6 +9,7 @@ import {useTranslation} from 'react-i18next';
 import BottomSheetHandleBar from '../components/BottomSheetHandleBar';
 import AddOns from '../components/AddOns';
 import CustomActivityIndicator from '../components/CustomActivityIndicator';
+import {constant} from '../constants';
 
 export default function SubscriptionPlansScreen({route}) {
   const {
@@ -146,7 +147,7 @@ export default function SubscriptionPlansScreen({route}) {
     },
     nameText: {
       fontSize: 15,
-      fontWeight: 'bold',
+      fontFamily: constant.fonts.NunitoSansBold,
       color: theme.textColor,
       flexShrink: 1,
       textAlign: 'center',
@@ -154,7 +155,7 @@ export default function SubscriptionPlansScreen({route}) {
     },
     subscriptionInfoItemTextKey: {
       fontSize: 15,
-      fontWeight: 'bold',
+      fontFamily: constant.fonts.NunitoSansBold,
       color: theme.textColor,
       flexShrink: 1,
       textAlign: 'right',
@@ -164,7 +165,7 @@ export default function SubscriptionPlansScreen({route}) {
     },
     subscriptionInfoItemTextValue: {
       fontSize: 15,
-      fontWeight: 'normal',
+      fontFamily: constant.fonts.NunitoSansRegular,
       color: theme.textColor,
       flexShrink: 1,
       textAlign: 'left',
@@ -173,7 +174,7 @@ export default function SubscriptionPlansScreen({route}) {
     },
     planName: {
       fontSize: 15,
-      fontWeight: 'normal',
+      fontFamily: constant.fonts.NunitoSansRegular,
       color: theme.textColor,
       flexShrink: 1,
       textAlign: 'start',

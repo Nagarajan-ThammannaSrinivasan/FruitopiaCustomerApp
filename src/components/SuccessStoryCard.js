@@ -1,6 +1,7 @@
 import {View, Text, Image, StyleSheet, useWindowDimensions} from 'react-native';
 import {useSelector} from 'react-redux';
 import {useTranslation} from 'react-i18next';
+import {constant} from '../constants';
 
 export default function SuccessStoryCard({storyPic, storyHeader, storyDetail}) {
   const {height, width} = useWindowDimensions();
@@ -24,6 +25,11 @@ export default function SuccessStoryCard({storyPic, storyHeader, storyDetail}) {
       elevation: 1,
       overflow: 'visible',
     },
+    innerContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
     image: {
       width: 40,
       height: 40,
@@ -32,7 +38,7 @@ export default function SuccessStoryCard({storyPic, storyHeader, storyDetail}) {
     },
     storyTitle: {
       fontSize: 15,
-      fontWeight: 'normal',
+      fontFamily: constant.fonts.NunitoSansRegular,
       color: theme.textColor,
       paddingStart: 10,
       flexShrink: 1,
@@ -40,12 +46,7 @@ export default function SuccessStoryCard({storyPic, storyHeader, storyDetail}) {
   });
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}>
+      <View style={styles.innerContainer}>
         <Image source={storyPic} style={styles.image}></Image>
         <Text style={styles.storyTitle} ellipsizeMode="tail" numberOfLines={1}>
           {storyHeader}

@@ -18,7 +18,7 @@ import ContactUsScreen from '../screens/drawerScreens/ContactUsScreen';
 import AboutUsScreen from '../screens/drawerScreens/AboutUsScreen';
 import TermsNPrivacyScreen from '../screens/drawerScreens/TermsNPrivacyScreen';
 import LogoutScreen from '../screens/drawerScreens/LogoutScreen';
-
+import {constant} from '../constants';
 const Stack = createNativeStackNavigator();
 
 export default function RootStack() {
@@ -39,6 +39,7 @@ export default function RootStack() {
           backgroundColor: theme.headerBackgroundColor,
           color: theme.headerTextColor,
         },
+        headerTitleStyle: {fontFamily: constant.fonts.NunitoSansRegular},
       }}>
       <Stack.Screen
         name="BottomTabs"

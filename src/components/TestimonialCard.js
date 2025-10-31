@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, Image, ImageBackground, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
 import StarRating from './StarRating';
+import {constant} from '../constants';
 
 export default function TestimonialCard({
   name,
@@ -30,6 +31,11 @@ export default function TestimonialCard({
       elevation: 1,
       overflow: 'visible',
     },
+    innerContainer: {
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
     image: {
       width: 30,
       height: 30,
@@ -38,7 +44,7 @@ export default function TestimonialCard({
     },
     nameText: {
       fontSize: 15,
-      fontWeight: 'bold',
+      fontFamily: constant.fonts.NunitoSansBold,
       color: theme.textColor,
       flexShrink: 1,
     },
@@ -50,16 +56,12 @@ export default function TestimonialCard({
       flexShrink: 1,
       maxHeight: 80,
       width: 200,
+      fontFamily: constant.fonts.NunitoSansRegular,
     },
   });
   return (
     <View style={styles.container}>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}>
+      <View style={styles.innerContainer}>
         <Image source={profilePic} style={styles.image}></Image>
         <Text style={styles.nameText} ellipsisMode="tail" numberOfLines={1}>
           {name}

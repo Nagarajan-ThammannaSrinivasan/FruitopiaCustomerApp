@@ -10,6 +10,7 @@ import Carousel, {
   Pagination,
 } from 'react-native-reanimated-carousel';
 import {useSharedValue} from 'react-native-reanimated';
+import {constant} from '../constants';
 
 export default function BannerCarousal() {
   const {themeMode, theme} = useSelector(state => state.theme);

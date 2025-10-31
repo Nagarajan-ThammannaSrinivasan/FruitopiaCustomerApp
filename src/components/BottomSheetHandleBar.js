@@ -3,6 +3,7 @@ import React from 'react';
 import {View, Text, Pressable, StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useSelector} from 'react-redux';
+import {constant} from '../constants';
 
 export default function BottomSheetHandleBar({onClose}) {
   const {themeMode, theme} = useSelector(state => state.theme);
@@ -28,6 +29,12 @@ export default function BottomSheetHandleBar({onClose}) {
       overflow: 'visible',
       backgroundColor: theme.primary,
     },
+    innerContainer: {position: 'absolute', alignItems: 'center'},
+    headerText: {
+      color: theme.primaryTextColor,
+      fontFamily: constant.fonts.NunitoSansRegular,
+    },
+    closeBtnContainer: {flex: 1, alignItems: 'flex-end'},
   });
 
   const CloseBottomSheet = () => {
@@ -36,10 +43,10 @@ export default function BottomSheetHandleBar({onClose}) {
 
   return (
     <View style={styles.container}>
-      <View style={{position: 'absolute', alignItems: 'center'}}>
-        <Text style={{color: theme.primaryTextColor}}>{t('addOns')}</Text>
+      <View style={styles.innerContainer}>
+        <Text style={styles.headerText}>{t('addOns')}</Text>
       </View>
-      <View style={{flex: 1, alignItems: 'flex-end'}}>
+      <View style={styles.closeBtnContainer}>
         <Pressable onPress={CloseBottomSheet}>
           <MaterialIcons
             name="close"

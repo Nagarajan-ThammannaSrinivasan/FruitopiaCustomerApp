@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, Text, View, Pressable} from 'react-native';
+import {FlatList, Text, View, Pressable, StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
@@ -7,6 +7,7 @@ import {useTranslation} from 'react-i18next';
 import UserInfo from './UserInfo';
 import Divider from './Divider';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
+import {constant} from '../constants';
 
 //Screens
 import AboutUsScreen from '../screens/drawerScreens/AboutUsScreen';
@@ -81,6 +82,30 @@ export default function CustomDrawer() {
   const {themeMode, theme} = useSelector(state => state.theme);
   const {t, i18n, ready} = useTranslation();
   if (!ready) return null;
+
+  const styles = StyleSheet.create({
+    itemContainer: {
+      padding: 5,
+      flexDirection: 'row',
+      textAlign: 'center',
+      alignItems: 'center',
+    },
+    itemText: {
+      fontSize: 16,
+      padding: 5,
+      color: theme.primaryTextColor,
+      flex: 1,
+      fontFamily: constant.fonts.NunitoSansRegular,
+    },
+    arrowIcon: {
+      fontSize: 16,
+      color: theme.primaryTextColor,
+      alignItems: 'center',
+      textAlign: 'center',
+      fontStyle: 'bold',
+      paddingRight: 5,
+    },
+  });
   return (
     <SafeAreaView edges={['top']}>
       <UserInfo />
@@ -89,51 +114,25 @@ export default function CustomDrawer() {
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item}) => (
           <Pressable
-            style={{
-              padding: 5,
-              flexDirection: 'row',
-              textAlign: 'center',
-              alignItems: 'center',
-            }}
+            style={styles.itemContainer}
             onPress={() => navigation.navigate(item.route)}>
-            <Text
-              style={{
-                fontSize: 16,
-                padding: 5,
-                color: theme.primaryTextColor,
-                flex: 1,
-              }}>
-              {t(item.name)}
-            </Text>
+            <Text style={styles.itemText}>{t(item.name)}</Text>
             <MaterialIcons
               name="keyboard-arrow-right"
-              style={{
-                fontSize: 16,
-                color: theme.primaryTextColor,
-                alignItems: 'center',
-                textAlign: 'center',
-                fontStyle: 'bold',
-                paddingRight: 5,
-              }}></MaterialIcons>
+              style={styles.arrowIcon}></MaterialIcons>
           </Pressable>
         )}></FlatList>
 
       <Divider></Divider>
+
       <FlatList
         data={drawerAppOfficalScreensArray}
         keyExtractor={(item, index) => index.toString()}
         renderItem={({item}) => (
           <Pressable
-            style={{padding: 5}}
+            style={styles.itemContainer}
             onPress={() => navigation.navigate(item.route)}>
-            <Text
-              style={{
-                fontSize: 16,
-                padding: 2,
-                color: theme.primaryTextColor,
-              }}>
-              {t(item.name)}
-            </Text>
+            <Text style={styles.itemText}>{t(item.name)}</Text>
           </Pressable>
         )}></FlatList>
     </SafeAreaView>

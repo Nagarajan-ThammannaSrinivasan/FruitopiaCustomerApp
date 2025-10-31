@@ -4,6 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import testSuccessStories from '../data/testSuccessStories';
 import SuccessStoryCard from './SuccessStoryCard';
+import {constant} from '../constants';
 
 export default function SuccessStories() {
   const {themeMode, theme} = useSelector(state => state.theme);
@@ -29,7 +30,7 @@ export default function SuccessStories() {
     },
     sectionTitle: {
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: constant.fonts.NunitoSansBold,
       paddingRight: 5,
       paddingBottom: 5,
       paddingTop: 5,

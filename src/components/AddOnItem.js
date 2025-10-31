@@ -6,6 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
+import {constant} from '../constants';
 
 export default function AddOnItem({item}) {
   const {themeMode, theme} = useSelector(state => state.theme);
@@ -59,17 +60,22 @@ export default function AddOnItem({item}) {
     },
     nameText: {
       fontSize: 15,
-      fontWeight: 'normal',
+      fontFamily: constant.fonts.NunitoSansRegular,
       color: theme.textColor,
     },
-
+    priceText: {
+      fontSize: 14,
+      fontFamily: constant.fonts.NunitoSansRegular,
+      color: theme.textColor,
+    },
     descriptionText: {
       fontSize: 14,
-      fontWeight: 'normal',
+      fontFamily: constant.fonts.NunitoSansRegular,
       color: theme.textColor,
     },
     variantText: {
       fontSize: 14,
+      fontFamily: constant.fonts.NunitoSansRegular,
       color: theme.textColor,
       paddingLeft: 10,
       paddingRight: 5,
@@ -124,7 +130,7 @@ export default function AddOnItem({item}) {
         {/* Middle Section — Price */}
         <View>
           {item.price !== null ? (
-            <Text key="price" style={styles.nameText}>
+            <Text key="price" style={styles.priceText}>
               ₹ {item.price}
             </Text>
           ) : (

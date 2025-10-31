@@ -3,6 +3,7 @@ import {View, Text, Image, StyleSheet, Pressable} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
+import {constant} from '../constants';
 
 export default function SubscriptionsSliderCard({subscription}) {
   const {subscriptionName, subscriptionPic} = subscription;
@@ -26,6 +27,12 @@ export default function SubscriptionsSliderCard({subscription}) {
       elevation: 1,
       overflow: 'visible',
     },
+    innerContainer: {
+      flex: 1,
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
     image: {
       width: 50,
       height: 50,
@@ -34,7 +41,7 @@ export default function SubscriptionsSliderCard({subscription}) {
     },
     nameText: {
       fontSize: 15,
-      fontWeight: 'bold',
+      fontFamily: constant.fonts.NunitoSansRegular,
       color: theme.textColor,
       flexShrink: 1,
       textAlign: 'center',
@@ -50,13 +57,7 @@ export default function SubscriptionsSliderCard({subscription}) {
             item: subscription,
           })
         }>
-        <View
-          style={{
-            flex: 1,
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
+        <View style={styles.innerContainer}>
           <Image source={subscriptionPic} style={styles.image}></Image>
           <Text style={styles.nameText} ellipsisMode="tail" numberOfLines={1}>
             {subscriptionName}

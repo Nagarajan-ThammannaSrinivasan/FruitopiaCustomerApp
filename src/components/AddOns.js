@@ -8,6 +8,7 @@ import testAddOnsInfo from '../data/testAddOns';
 import CustomActivityIndicator from './CustomActivityIndicator';
 import AddOnItem from './AddOnItem';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
+import {constant} from '../constants';
 
 export default function AddOns() {
   const {themeMode, theme} = useSelector(state => state.theme);
@@ -50,7 +51,7 @@ export default function AddOns() {
       marginHorizontal: 5,
       padding: 5,
       fontSize: 15,
-      fontWeight: 'bold',
+      fontFamily: constant.fonts.NunitoSansBold,
       color: theme.sectionHeaderColor,
       flexShrink: 1,
       textAlign: 'center',

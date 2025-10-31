@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, Image, ImageBackground, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
+import {constant} from '../constants';
 
 export default function BannerCard({img, title, description, price}) {
   const {themeMode, theme} = useSelector(state => state.theme);

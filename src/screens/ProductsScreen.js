@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
 import {useTranslation} from 'react-i18next';
+import {constant} from '../constants';
 
 export default function ProductsScreen() {
   const {themeMode, theme} = useSelector(state => state.theme);
@@ -17,8 +18,9 @@ export default function ProductsScreen() {
     },
     text: {
       fontSize: 16,
-      fontWeight: 'normal',
       textAlign: 'center',
+      fontFamily: constant.fonts.NunitoSansRegular,
+      color: theme.primaryTextColor,
     },
   });
 

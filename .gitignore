@@ -87,3 +87,9 @@ android/app/src/main/res/raw/
 
 #jar
 *.jar
+
+#fonts
+android/app/src/main/assets/fonts
+android/link-assets-manifest.json
+
+ios/link-assets-manifest.json

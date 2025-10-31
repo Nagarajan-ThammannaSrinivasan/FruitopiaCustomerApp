@@ -2,6 +2,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {MaterialIcons} from '@react-native-vector-icons/material-icons';
 import {useSelector, useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
+import {constant} from '../constants';
 
 import Header from './Header';
 import HomeScreen from '../screens/HomeScreen';
@@ -45,7 +46,7 @@ export default function BottomTabsNavigator() {
         },
         tabBarLabelStyle: {
           fontSize: 12,
-          fontFamily: 'nunito-sans',
+          fontFamily: constant.fonts.NunitoSansRegular,
         },
       })}>
       <Tab.Screen

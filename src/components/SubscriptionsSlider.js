@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View,
   Text,
-  Image,
   FlatList,
   StyleSheet,
   useWindowDimensions,
@@ -11,6 +10,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import testSubscriptions from '../data/testSubscriptions';
 import SubscriptionsSliderCard from './SubscriptionsSliderCard';
+import {constant} from '../constants';
 
 export default function SubscriptionsSlider() {
   const {themeMode, theme} = useSelector(state => state.theme);
@@ -31,11 +31,11 @@ export default function SubscriptionsSlider() {
     },
     sectionTitle: {
       fontSize: 16,
-      fontWeight: 'bold',
       paddingRight: 5,
       paddingBottom: 5,
       paddingTop: 5,
       alignSelf: 'flex-start',
+      fontFamily: constant.fonts.NunitoSansBold,
       color: theme.sectionHeaderColor,
       flexShrink: 1,
     },

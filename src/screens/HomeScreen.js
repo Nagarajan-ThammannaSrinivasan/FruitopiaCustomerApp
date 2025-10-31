@@ -6,6 +6,7 @@ import Testimonials from '../components/Testimonials';
 import BannerCarousal from '../components/BannerCarousal';
 import SubscriptionsSlider from '../components/SubscriptionsSlider';
 import SuccessStories from '../components/SuccessStories';
+import {constant} from '../constants';
 
 export default function HomeScreen() {
   const count = useSelector(state => state.counter.value);
@@ -19,20 +20,6 @@ export default function HomeScreen() {
       flex: 1,
       backgroundColor: theme.backgroundColor,
       paddingBottom: 10,
-    },
-    button: {
-      padding: 6,
-      borderRadius: 6,
-      marginVertical: 6,
-      alignItems: 'center',
-    },
-    buttonText: {
-      fontSize: 16,
-      color: 'white', // or from theme
-      textTransform: 'none', // preserves original casing
-    },
-    text: {
-      fontSize: 16,
     },
   });
 

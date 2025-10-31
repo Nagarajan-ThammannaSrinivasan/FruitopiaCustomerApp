@@ -4,6 +4,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import TestimonialCard from './TestimonialCard';
 import testTestimonials from '../data/testTestimonials';
+import {constant} from '../constants';
 
 export default function Testimonials() {
   const {themeMode, theme} = useSelector(state => state.theme);
@@ -28,7 +29,7 @@ export default function Testimonials() {
     },
     sectionTitle: {
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: constant.fonts.NunitoSansBold,
       paddingRight: 5,
       paddingBottom: 5,
       paddingTop: 5,
