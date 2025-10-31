@@ -47,7 +47,7 @@ export default function Header() {
   });
   return (
     <SafeAreaView edges={['top']}>
-      <View style={StyleSheet.container}>
+      <View style={styles.container}>
         <MaterialIcons
           name="menu"
           size={30}
@@ -56,7 +56,6 @@ export default function Header() {
           style={styles.menuIcon}
         />
         <Text style={styles.appTitleText}>{t('hello')} Fruitopian!!</Text>
-
         <MaterialIcons
           name="wallet"
           size={30}
