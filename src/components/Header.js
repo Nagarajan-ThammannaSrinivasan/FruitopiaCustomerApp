@@ -19,49 +19,79 @@ export default function Header() {
   if (!ready) return null;
 
   const styles = StyleSheet.create({
+    safeArea: {
+      backgroundColor: theme.headerBackgroundColor,
+    },
     container: {
       flexDirection: 'row',
-      height: 50,
-      justifyContent: 'center',
       alignItems: 'center',
+      height: 50,
       backgroundColor: theme.headerBackgroundColor,
+      paddingHorizontal: 10,
+    },
+    leftIcon: {
+      padding: 5,
     },
     menuIcon: {
       flex: 1,
       padding: 10,
-      textAlign: 'left',
+      alignItems: 'left',
     },
-    appTitleText: {
-      flex: 2,
-      textAlign: 'center',
+    titleText: {
       fontSize: 20,
-      fontFamily: constant.fonts.NunitoSansItalic,
-      color: theme.headerTextColor,
+      fontFamily: constant.fonts.NunitoSansBold,
+      color: theme.contrastTextColor,
     },
     walletIcon: {
       justifyContent: 'center',
-      textAlign: 'right',
-      padding: 10,
+      alignItems: 'center',
+      padding: 5,
       flex: 1,
+    },
+    rightIconsContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    rightIcon: {
+      paddingHorizontal: 5,
+    },
+    titleContainer: {
+      flex: 1, // fills remaining space
+      alignItems: 'center',
     },
   });
   return (
-    <SafeAreaView edges={['top']}>
+    <SafeAreaView edges={['top']} style={styles.safeArea}>
       <View style={styles.container}>
+        {/* Left menu icon */}
         <MaterialIcons
           name="menu"
-          size={30}
-          color={theme.headerTextColor}
+          size={25}
+          color={theme.contrastTextColor}
           onPress={() => drawerNavigation.dispatch(DrawerActions.openDrawer())}
-          style={styles.menuIcon}
+          style={styles.leftIcon}
         />
-        <Text style={styles.appTitleText}>{t('hello')} Fruitopian!!</Text>
-        <MaterialIcons
-          name="wallet"
-          size={30}
-          color={theme.headerTextColor}
-          style={styles.walletIcon}
-        />
+
+        {/* Title */}
+        <View style={styles.titleContainer}>
+          <Text style={styles.titleText}>{t('hello')} Fruitopian!!</Text>
+        </View>
+
+        {/* Right icons */}
+        <View style={styles.rightIconsContainer}>
+          <MaterialIcons
+            name="wallet"
+            size={25}
+            color={theme.contrastTextColor}
+            style={styles.rightIcon}
+          />
+          <MaterialIcons
+            name="notifications"
+            size={25}
+            color={theme.contrastTextColor}
+            style={styles.rightIcon}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
