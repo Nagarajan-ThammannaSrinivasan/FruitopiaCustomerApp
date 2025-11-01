@@ -31,7 +31,7 @@ export default function SubscriptionPlansScreen({route}) {
   const {t, i18n, ready} = useTranslation();
   if (!ready) return null;
 
-  const snapPoints = useMemo(() => ['10%', '25%', '50%', '75%'], []);
+  const snapPoints = useMemo(() => ['10%', '25%', '59%', '75%'], []);
   const openSheet = () => bottomSheetRef.current?.snapToIndex(2);
   const closeSheet = () => bottomSheetRef.current?.close();
 
@@ -140,7 +140,7 @@ export default function SubscriptionPlansScreen({route}) {
     },
     image: {
       width: width,
-      height: 200,
+      height: '40%',
       borderBottomLeftRadius: 20,
       borderBottomRightRadius: 20,
       resizeMode: 'cover',
