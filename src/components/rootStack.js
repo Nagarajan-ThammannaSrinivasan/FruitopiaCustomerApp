@@ -31,7 +31,7 @@ export default function RootStack() {
       initialRouteName="BottomTabs"
       screenOptions={{
         headerTitleAlign: 'center',
-        headerTintColor: theme.headerTextColor,
+        headerTintColor: theme.contrastTextColor,
         detachPreviousScreen: false,
         backgroundColor: theme.backgroundColor,
         animation: 'slide_from_right',
