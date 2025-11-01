@@ -32,11 +32,6 @@ export default function Header() {
     leftIcon: {
       padding: 5,
     },
-    menuIcon: {
-      flex: 1,
-      padding: 10,
-      alignItems: 'left',
-    },
     titleText: {
       fontSize: 20,
       fontFamily: constant.fonts.NunitoSansBold,
