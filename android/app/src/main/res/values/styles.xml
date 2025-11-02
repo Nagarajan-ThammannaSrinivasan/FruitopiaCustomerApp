@@ -12,6 +12,6 @@
         <item name="postBootSplashTheme">@style/AppTheme</item>
         <item name="android:statusBarColor">#f5fcff</item>
         <item name="android:navigationBarColor">#f5fcff</item>
-        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>

@@ -1,4 +1,4 @@
-import DrawerNavigator from './drawerNavigator';
+import DrawerNavigator from './DrawerNavigator';
 import {
   NavigationContainer,
   DarkTheme,
@@ -13,9 +13,9 @@ import BootSplash from 'react-native-bootsplash';
 
 export default function RootNavigator() {
   const onNavigationReady = useCallback(async () => {
-    console.log('✅ Navigation ready at', Date.now());
-    await BootSplash.hide({fade: false});
-    console.log('BootSplash hidden after navigation ready');
+    // console.log('✅ Navigation ready at', Date.now());
+    await BootSplash.hide({fade: true});
+    // console.log('BootSplash hidden after navigation ready');
   }, []);
 
   const {themeMode, theme} = useSelector(state => state.theme);
