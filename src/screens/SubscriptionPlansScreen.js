@@ -10,6 +10,7 @@ import BottomSheetHandleBar from '../components/BottomSheetHandleBar';
 import AddOns from '../components/AddOns';
 import CustomActivityIndicator from '../components/CustomActivityIndicator';
 import {constant} from '../constants';
+import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export default function SubscriptionPlansScreen({route}) {
   const {
@@ -69,21 +70,21 @@ export default function SubscriptionPlansScreen({route}) {
     setPlanSelectedId(null);
   };
 
+  const insets = useSafeAreaInsets();
+
   const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: theme.backgroundColor,
-      width: width,
-      height: height,
       // Shadow for iOS
       shadowColor: theme.shadowColor,
       shadowOffset: {width: 0, height: 2},
       shadowOpacity: 0.1,
       shadowRadius: 4,
-
       // Elevation for Android
       elevation: 1,
       overflow: 'visible',
+      marginRight: insets.right > 20 ? 0 : -insets.right,
     },
     textContainer: {
       marginHorizontal: 5,
@@ -139,7 +140,6 @@ export default function SubscriptionPlansScreen({route}) {
       flexDirection: 'row',
     },
     image: {
-      width: width,
       height: '40%',
       borderBottomLeftRadius: 20,
       borderBottomRightRadius: 20,
@@ -181,51 +181,62 @@ export default function SubscriptionPlansScreen({route}) {
       paddingTop: 5,
       flex: 1,
     },
+    flex1: {flex: 1},
   });
 
   if (loading) return <CustomActivityIndicator />;
 
   return (
-    <View style={styles.container}>
-      <Image source={subscriptionPic} style={styles.image}></Image>
-      <View style={styles.subscriptionInfoContainer}>
-        <Text style={styles.nameText}>{subscriptionName}</Text>
-        <View style={styles.subscriptionInfoItemContainer}>
-          <Text style={styles.subscriptionInfoItemTextKey}>{t('weight')}</Text>
-          <Text style={styles.subscriptionInfoItemTextValue}>{weight}</Text>
-        </View>
+    <SafeAreaView style={styles.flex1}>
+      <View style={styles.container}>
+        <Image source={subscriptionPic} style={styles.image}></Image>
+        <View style={styles.subscriptionInfoContainer}>
+          <Text style={styles.nameText}>{subscriptionName}</Text>
+          <View style={styles.subscriptionInfoItemContainer}>
+            <Text style={styles.subscriptionInfoItemTextKey}>
+              {t('weight')}
+            </Text>
+            <Text style={styles.subscriptionInfoItemTextValue}>{weight}</Text>
+          </View>
 
-        <View style={styles.subscriptionInfoItemContainer}>
-          <Text style={styles.subscriptionInfoItemTextKey}>{t('fruits')}</Text>
-          <Text style={styles.subscriptionInfoItemTextValue}>{fruits}</Text>
+          <View style={styles.subscriptionInfoItemContainer}>
+            <Text style={styles.subscriptionInfoItemTextKey}>
+              {t('fruits')}
+            </Text>
+            <Text style={styles.subscriptionInfoItemTextValue}>{fruits}</Text>
+          </View>
+          <View style={styles.subscriptionInfoItemContainer}>
+            <Text style={styles.subscriptionInfoItemTextKey}>
+              {t('vegatables')}
+            </Text>
+            <Text style={styles.subscriptionInfoItemTextValue}>
+              {vegatables}
+            </Text>
+          </View>
+          <View style={styles.subscriptionInfoItemContainer}>
+            <Text style={styles.subscriptionInfoItemTextKey}>
+              {t('protein')}
+            </Text>
+            <Text style={styles.subscriptionInfoItemTextValue}>{protein}</Text>
+          </View>
         </View>
-        <View style={styles.subscriptionInfoItemContainer}>
-          <Text style={styles.subscriptionInfoItemTextKey}>
-            {t('vegatables')}
-          </Text>
-          <Text style={styles.subscriptionInfoItemTextValue}>{vegatables}</Text>
-        </View>
-        <View style={styles.subscriptionInfoItemContainer}>
-          <Text style={styles.subscriptionInfoItemTextKey}>{t('protein')}</Text>
-          <Text style={styles.subscriptionInfoItemTextValue}>{protein}</Text>
-        </View>
+        <FlatList
+          style={styles.planInfoContainer}
+          data={subscriptionPlansInfo.plans}
+          keyExtractor={item => item.id.toString()}
+          renderItem={subscriptionPlansRenderItem}></FlatList>
+
+        <BottomSheet
+          ref={bottomSheetRef}
+          handleComponent={() => (
+            <BottomSheetHandleBar onClose={onBottomSheetClose} />
+          )}
+          backgroundStyle={{backgroundColor: theme.bottomSheetBackgroundColor}}
+          index={-1}
+          snapPoints={snapPoints}>
+          <AddOns />
+        </BottomSheet>
       </View>
-      <FlatList
-        style={styles.planInfoContainer}
-        data={subscriptionPlansInfo.plans}
-        keyExtractor={item => item.id.toString()}
-        renderItem={subscriptionPlansRenderItem}></FlatList>
-
-      <BottomSheet
-        ref={bottomSheetRef}
-        handleComponent={() => (
-          <BottomSheetHandleBar onClose={onBottomSheetClose} />
-        )}
-        backgroundStyle={{backgroundColor: theme.bottomSheetBackgroundColor}}
-        index={-1}
-        snapPoints={snapPoints}>
-        <AddOns />
-      </BottomSheet>
-    </View>
+    </SafeAreaView>
   );
 }

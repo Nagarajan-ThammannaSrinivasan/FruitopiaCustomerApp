@@ -7,6 +7,7 @@ import {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import MaterialIcons from '@react-native-vector-icons/material-icons';
 import {constant} from '../constants';
+import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export default function AddOnItem({item}) {
   const {themeMode, theme} = useSelector(state => state.theme);
@@ -15,6 +16,8 @@ export default function AddOnItem({item}) {
   const [loading, setLoading] = useState(true);
   const {t, i18n, ready} = useTranslation();
   if (!ready) return null;
+
+  const insets = useSafeAreaInsets();
 
   const [isChecked, setIsChecked] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(null);
@@ -93,73 +96,75 @@ export default function AddOnItem({item}) {
     flex1: {flex: 1},
   });
   return (
-    <View style={styles.container}>
-      <View style={styles.innerContainer}>
-        {/* Left Section — Name + Variants */}
-        <View style={styles.flex1}>
-          <Text style={styles.nameText}>{item.name}</Text>
-          {item.quantity != null ? (
-            <Text style={styles.descriptionText}>({item.quantity})</Text>
-          ) : (
-            <Text>{''}</Text>
-          )}
-          {item.variants.length > 0
-            ? item.variants.map((variant, index) => (
-                <Pressable
-                  key={variant.variant_name + index}
-                  onPress={() => handleVariantSelection(variant)}>
-                  <View style={styles.variantNameContainer}>
-                    <Text style={styles.variantText}>
-                      {variant.variant_name} ({variant.variant_provide})
-                    </Text>
-                    {selectedVariant == variant ? (
-                      <MaterialIcons
-                        name="check-circle"
-                        size={20}
-                        color="green"
-                      />
+    <SafeAreaView style={styles.flex1}>
+      <View style={styles.container}>
+        <View style={styles.innerContainer}>
+          {/* Left Section — Name + Variants */}
+          <View style={styles.flex1}>
+            <Text style={styles.nameText}>{item.name}</Text>
+            {item.quantity != null ? (
+              <Text style={styles.descriptionText}>({item.quantity})</Text>
+            ) : (
+              <Text>{''}</Text>
+            )}
+            {item.variants.length > 0
+              ? item.variants.map((variant, index) => (
+                  <Pressable
+                    key={variant.variant_name + index}
+                    onPress={() => handleVariantSelection(variant)}>
+                    <View style={styles.variantNameContainer}>
+                      <Text style={styles.variantText}>
+                        {variant.variant_name} ({variant.variant_provide})
+                      </Text>
+                      {selectedVariant == variant ? (
+                        <MaterialIcons
+                          name="check-circle"
+                          size={20}
+                          color="green"
+                        />
+                      ) : (
+                        <Text>{''}</Text>
+                      )}
+                    </View>
+                  </Pressable>
+                ))
+              : null}
+          </View>
+
+          {/* Middle Section — Price */}
+          <View>
+            {item.price !== null ? (
+              <Text key="price" style={styles.priceText}>
+                ₹ {item.price}
+              </Text>
+            ) : (
+              <Text key="price_empty">{''} </Text>
+            )}
+
+            {item.variants.length > 0
+              ? [{variant_price: 'parent'}, ...item.variants].map(
+                  (variant, index) =>
+                    variant.variant_price !== 'parent' ? (
+                      <Text key={index} style={styles.variantText}>
+                        ₹ {variant.variant_price}
+                      </Text>
                     ) : (
-                      <Text>{''}</Text>
-                    )}
-                  </View>
-                </Pressable>
-              ))
-            : null}
+                      <Text key={`price_empty2${index}`}>{''} </Text>
+                    ),
+                )
+              : null}
+          </View>
+
+          {/* Right Section — Checkbox */}
+          <Pressable style={styles.checkBox} onPress={handleAddonCheck}>
+            <MaterialIcons
+              name={isChecked ? 'check-box' : 'check-box-outline-blank'}
+              size={24}
+              color={isChecked ? theme.primary : theme.inactiveCheckBoxColor}
+            />
+          </Pressable>
         </View>
-
-        {/* Middle Section — Price */}
-        <View>
-          {item.price !== null ? (
-            <Text key="price" style={styles.priceText}>
-              ₹ {item.price}
-            </Text>
-          ) : (
-            <Text key="price_empty">{''} </Text>
-          )}
-
-          {item.variants.length > 0
-            ? [{variant_price: 'parent'}, ...item.variants].map(
-                (variant, index) =>
-                  variant.variant_price !== 'parent' ? (
-                    <Text key={index} style={styles.variantText}>
-                      ₹ {variant.variant_price}
-                    </Text>
-                  ) : (
-                    <Text key={`price_empty2${index}`}>{''} </Text>
-                  ),
-              )
-            : null}
-        </View>
-
-        {/* Right Section — Checkbox */}
-        <Pressable style={styles.checkBox} onPress={handleAddonCheck}>
-          <MaterialIcons
-            name={isChecked ? 'check-box' : 'check-box-outline-blank'}
-            size={24}
-            color={isChecked ? theme.primary : theme.inactiveCheckBoxColor}
-          />
-        </Pressable>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

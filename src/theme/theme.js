@@ -6,7 +6,7 @@ export const lightTheme = {
   textColor: '#121212',
   buttonBackgroundColor: '#EA580C',
   drawerBackgroundColor: '#F4F4F2',
-  bottomTabBackgroundColor: '#FFFFFF',
+  bottomTabBackgroundColor: '#F4F4F2',
   bottomTabIconColor: '#F97316',
   bottomTabLabelColor: '#121212',
   bottomTabActiveLabelColor: '#F97316',

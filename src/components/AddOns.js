@@ -9,6 +9,7 @@ import CustomActivityIndicator from './CustomActivityIndicator';
 import AddOnItem from './AddOnItem';
 import {BottomSheetFlatList} from '@gorhom/bottom-sheet';
 import {constant} from '../constants';
+import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export default function AddOns() {
   const {themeMode, theme} = useSelector(state => state.theme);
@@ -17,6 +18,8 @@ export default function AddOns() {
   const [loading, setLoading] = useState(true);
   const {t, i18n, ready} = useTranslation();
   if (!ready) return null;
+
+  const insets = useSafeAreaInsets();
 
   const [addOnsInfo, setAddOnsInfo] = useState({});
   useEffect(() => {
@@ -35,8 +38,6 @@ export default function AddOns() {
       flex: 1,
       padding: 10,
       backgroundColor: theme.backgroundColor,
-      width: width,
-      height: height,
       // Shadow for iOS
       shadowColor: theme.shadowColor,
       shadowOffset: {width: 0, height: 2},
@@ -46,6 +47,7 @@ export default function AddOns() {
       // Elevation for Android
       elevation: 1,
       overflow: 'visible',
+      marginRight: insets.right > 20 ? 0 : -insets.right,
     },
     textContainer: {
       marginHorizontal: 5,
@@ -56,16 +58,19 @@ export default function AddOns() {
       flexShrink: 1,
       textAlign: 'center',
     },
+    flex1: {flex: 1},
   });
 
   return (
-    <View style={styles.container}>
-      <BottomSheetFlatList
-        style={{flex: 1}}
-        data={addOnsInfo}
-        keyExtractor={(item, index) => index.toString()}
-        showsVerticalScrollIndicator={false}
-        renderItem={addOnRenderItem}></BottomSheetFlatList>
-    </View>
+    <SafeAreaView style={styles.flex1}>
+      <View style={styles.container}>
+        <BottomSheetFlatList
+          style={{flex: 1}}
+          data={addOnsInfo}
+          keyExtractor={(item, index) => index.toString()}
+          showsVerticalScrollIndicator={false}
+          renderItem={addOnRenderItem}></BottomSheetFlatList>
+      </View>
+    </SafeAreaView>
   );
 }

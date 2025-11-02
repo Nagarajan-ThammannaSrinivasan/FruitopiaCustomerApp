@@ -27,5 +27,6 @@ class MainActivity : ReactActivity() {
       AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
       super.onCreate(null)
       RNBootSplash.init(this, R.style.BootTheme) // ⬅️ initialize the splash screen
+      getWindow().setDecorFitsSystemWindows(false); //For insets testing
   }
 }

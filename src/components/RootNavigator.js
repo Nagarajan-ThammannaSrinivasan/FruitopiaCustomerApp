@@ -21,13 +21,11 @@ export default function RootNavigator() {
   const {themeMode, theme} = useSelector(state => state.theme);
 
   return (
-    <SafeAreaProvider>
-      <ThemeInitializer>
-        <AppStatusBar />
-        <NavigationContainer onReady={onNavigationReady} theme={DefaultTheme}>
-          <DrawerNavigator />
-        </NavigationContainer>
-      </ThemeInitializer>
-    </SafeAreaProvider>
+    <ThemeInitializer>
+      <AppStatusBar />
+      <NavigationContainer onReady={onNavigationReady} theme={DefaultTheme}>
+        <DrawerNavigator />
+      </NavigationContainer>
+    </ThemeInitializer>
   );
 }
