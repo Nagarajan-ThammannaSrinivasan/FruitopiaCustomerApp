@@ -7,6 +7,7 @@ import BannerCarousal from '../components/BannerCarousal';
 import SubscriptionsSlider from '../components/SubscriptionsSlider';
 import SuccessStories from '../components/SuccessStories';
 import {constant} from '../constants';
+import React, {useEffect} from 'react';
 
 export default function HomeScreen() {
   const count = useSelector(state => state.counter.value);
@@ -14,6 +15,10 @@ export default function HomeScreen() {
   const dispatch = useDispatch();
   const {t, i18n, ready} = useTranslation();
   if (!ready) return null;
+
+  useEffect(() => {
+    console.log('🏠 HomeScreen mounted at', Date.now());
+  }, []);
 
   const styles = StyleSheet.create({
     container: {

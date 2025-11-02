@@ -15,6 +15,8 @@
 		1748F77327FD498E9499B5B8 /* NunitoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E357AE0E42440D6B4D03587 /* NunitoSans-Italic.ttf */; };
 		F97043D22CFD4069AA6C2574 /* NunitoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3340AB9B184745E99C7F9300 /* NunitoSans-Light.ttf */; };
 		5943F394C7AD49FC920BACF5 /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C9EFA057047438CBC20A1DE /* NunitoSans-Regular.ttf */; };
+		009DD6DC4F15488F81B73E0E /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D1C6B4098545579252DD99 /* BootSplash.storyboard */; };
+		4308890E78704BA38A38E52C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B8BEB70E1334566A34C7DCE /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,8 @@
 		7E357AE0E42440D6B4D03587 /* NunitoSans-Italic.ttf */ = {isa = PBXFileReference; name = "NunitoSans-Italic.ttf"; path = "../src/assets/fonts/NunitoSans-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		3340AB9B184745E99C7F9300 /* NunitoSans-Light.ttf */ = {isa = PBXFileReference; name = "NunitoSans-Light.ttf"; path = "../src/assets/fonts/NunitoSans-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		7C9EFA057047438CBC20A1DE /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; name = "NunitoSans-Regular.ttf"; path = "../src/assets/fonts/NunitoSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		11D1C6B4098545579252DD99 /* BootSplash.storyboard */ = {isa = PBXFileReference; name = "BootSplash.storyboard"; path = "FruitopiaCustomerApp/BootSplash.storyboard"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4B8BEB70E1334566A34C7DCE /* Colors.xcassets */ = {isa = PBXFileReference; name = "Colors.xcassets"; path = "FruitopiaCustomerApp/Colors.xcassets"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = folder.assetcatalog; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				11D1C6B4098545579252DD99 /* BootSplash.storyboard */,
+				4B8BEB70E1334566A34C7DCE /* Colors.xcassets */,
 			);
 			name = FruitopiaCustomerApp;
 			sourceTree = "<group>";
@@ -210,6 +216,8 @@
 				1748F77327FD498E9499B5B8 /* NunitoSans-Italic.ttf in Resources */,
 				F97043D22CFD4069AA6C2574 /* NunitoSans-Light.ttf in Resources */,
 				5943F394C7AD49FC920BACF5 /* NunitoSans-Regular.ttf in Resources */,
+				009DD6DC4F15488F81B73E0E /* BootSplash.storyboard in Resources */,
+				4308890E78704BA38A38E52C /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

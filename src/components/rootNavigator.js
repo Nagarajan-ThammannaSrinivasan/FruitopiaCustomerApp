@@ -8,16 +8,23 @@ import ThemeInitializer from './ThemeInitializer';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import AppStatusBar from './AppStatusBar';
 import {useSelector} from 'react-redux';
+import React, {useCallback} from 'react';
+import BootSplash from 'react-native-bootsplash';
 
 export default function RootNavigator() {
+  const onNavigationReady = useCallback(async () => {
+    console.log('✅ Navigation ready at', Date.now());
+    await BootSplash.hide({fade: false});
+    console.log('BootSplash hidden after navigation ready');
+  }, []);
+
   const {themeMode, theme} = useSelector(state => state.theme);
 
   return (
     <SafeAreaProvider>
       <ThemeInitializer>
         <AppStatusBar />
-        <NavigationContainer
-          theme={themeMode === 'dark' ? DarkTheme : DefaultTheme}>
+        <NavigationContainer onReady={onNavigationReady} theme={DefaultTheme}>
           <DrawerNavigator />
         </NavigationContainer>
       </ThemeInitializer>

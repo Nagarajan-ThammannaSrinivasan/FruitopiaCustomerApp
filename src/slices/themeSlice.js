@@ -4,8 +4,8 @@ import {lightTheme, darkTheme} from '../theme/theme';
 const themeSlice = createSlice({
   name: 'theme', // slice name
   initialState: {
-    themeMode: 'dark',
-    theme: darkTheme,
+    themeMode: 'light',
+    theme: lightTheme,
   },
   reducers: {
     setTheme: (state, action) => {

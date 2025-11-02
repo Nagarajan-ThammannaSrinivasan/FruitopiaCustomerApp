@@ -4,7 +4,8 @@ import {setTheme} from '../slices/themeSlice';
 import {useColorScheme} from 'react-native';
 
 const ThemeInitializer = ({children}) => {
-  const scheme = useColorScheme();
+  const scheme = 'light';
+  // const scheme = useColorScheme();
   const dispatch = useDispatch();
 
   useEffect(() => {
