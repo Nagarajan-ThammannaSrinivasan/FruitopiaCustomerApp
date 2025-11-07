@@ -7,6 +7,7 @@ import com.facebook.react.defaults.DefaultReactActivityDelegate
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatDelegate
 import com.zoontek.rnbootsplash.RNBootSplash
+import android.graphics.Color
 
 class MainActivity : ReactActivity() {
 
@@ -27,6 +28,7 @@ class MainActivity : ReactActivity() {
       AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
       super.onCreate(null)
       RNBootSplash.init(this, R.style.BootTheme) // ⬅️ initialize the splash screen
-      getWindow().setDecorFitsSystemWindows(false); //For insets testing
+      //getWindow().setDecorFitsSystemWindows(false); //For insets testing
+      window.setNavigationBarColor(Color.parseColor("#F97316"));
   }
 }
