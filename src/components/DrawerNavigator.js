@@ -10,6 +10,7 @@ const Drawer = createDrawerNavigator();
 export default function DrawerNavigator() {
   const {height, width} = useWindowDimensions();
   const {themeMode, theme} = useSelector(state => state.theme);
+
   return (
     <Drawer.Navigator
       drawerContent={props => <CustomDrawer></CustomDrawer>}
